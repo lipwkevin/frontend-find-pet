@@ -1,0 +1,28 @@
+.seperate {
+  display: block;
+  text-align: center;
+  background-color: lightgrey
+}
+
+.menu-control{
+  background-color: lightblue
+  /*need hex for color blue*/
+}
+
+.report-control{
+  background-color: lightgrey
+}
+#menu-main a {
+  display: block;
+  text-align: center;
+  color: black
+  background-color: white
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-flow: column;
+}
