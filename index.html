@@ -98,14 +98,30 @@
         <a class='button-back'>BACK</a> MY REPORT
       </div>
       NEW REPORT
-      <a id="button-sumbitNewReport" href="#" class="btn btn-primary btn-block btn-lg">Preivew</a>
+      <a id="button-sumbitNewReportFound" href="#" class="btn btn-primary btn-block btn-lg">Preivew</a>
     </section>
+
     <section id='previewReportFound'>
+      <div class='report-control'>
+        <a class='button-back'>BACK</a> MY REPORT
+      </div>
+      <div id='previewReportFoundData'>
+
+      </div>
+      <a id="button-sumbitPreviewReportFound" href="#" class="btn btn-primary btn-block btn-lg">Comfirm</a>
     </section>
+
     <section id='completeReportFound'>
-      <a id="button-sumbitCompleteReport" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
+      compelte
+      <a id="button-sumbitCompleteReportFound" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
     </section>
     <section id='showReportFound'>
+      <div class='menu-control'>
+        <a class='button-back'>BACK</a> Lost Pet
+      </div>
+      <div id='showReportFoundData'>
+      </div>
+      <a id="button-MessageFound" href="#" class="btn btn-primary btn-block btn-lg">Message</a>
     </section>
     <section id='editReportFound'>
     </section>
@@ -114,6 +130,7 @@
         <a class='button-back'>BACK</a> MY REPORT
       </div>
       NEW REPORT
+      <a id="button-sumbitNewReportLost" href="#" class="btn btn-primary btn-block btn-lg">Preivew</a>
     </section>
     <section id='previewReportLost'>
       <div class='menu-control'>
@@ -121,9 +138,11 @@
       </div>
       <div id='previewReportLostData'>
       </div>
-      <a id="button-sumbitReport-lost" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
+      <a id="button-sumbitPreviewReportLost" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
     </section>
     <section id='completeReportLost'>
+      complete
+      <a id="button-sumbitCompleteReportLost" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
     </section>
     <section id='showReportLost'>
       <div class='menu-control'>
@@ -131,9 +150,18 @@
       </div>
       <div id='showReportLostData'>
       </div>
-      <a id="button-sumbitReport-lost" href="#" class="btn btn-primary btn-block btn-lg">Confirm</a>
+      <a id="button-MessageLost" href="#" class="btn btn-primary btn-block btn-lg">Message</a>
     </section>
     <section id='editReportLost'>
+    </section>
+
+    <section id='showMessage'>
+      <div class='menu-control'>
+        <a class='button-back'>BACK</a> Lost Pet
+      </div>
+      show Message
+      <div class='messageData'>
+      </div>
     </section>
 
     <!-- template list:
@@ -148,6 +176,10 @@
       editReportLost
     -->
 
+    <script id="showMessage" type="x-tmpl-mustache">
+      <img src={{photo1}}>
+      <p>{{body}}</p>
+    </script>
     <script id="report-summary" type="x-tmpl-mustache">
       <li data-id={{id}}>
         <p>{{note}}</p>
@@ -162,8 +194,8 @@
       </li>
     </script>
 
-    <script id="report-show" type="x-tmpl-mustache">
-      <img scr={{photo}}>
+    <script id="reportShow" type="x-tmpl-mustache">
+      <img data-id={{id}} scr={{photo}}>
       <p>Pet Type: {{pet_type}}</p>
       <p>Breed : {{breed}}</p>
       <p>Name : {{name}}</p>

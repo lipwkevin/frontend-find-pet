@@ -1,6 +1,6 @@
 // all views
 var allView = ['#menu-main','#listReport','#listMessage','#setting','#about'
-,'#newReportFound','#previewReportFound','#completeReportFound','#showReportFound','#editReportFound','#newReportLost','#previewReportLost','#completeReportLost','#showReportLost','#editReportLost']
+,'#newReportFound','#previewReportFound','#completeReportFound','#showReportFound','#editReportFound','#newReportLost','#previewReportLost','#completeReportLost','#showReportLost','#editReportLost','#showMessage']
 
 $(function(){
    //hide all views
@@ -20,12 +20,70 @@ $(function(){
 });
 
 var setAction = function(){
-  setRedirect('#button-sumbitNewReport','#completeReportFound','#previewReportFound');
+  //found route
+  setRedirectWithFunction('#button-sumbitNewReportFound','#newReportFound','#previewReportFound',renderPreviewFound);
+  setRedirect('#button-sumbitPreviewReportFound','#previewReportFound','#completeReportFound');
+  setRedirect('#button-sumbitCompleteReportFound','#completeReportFound','#showReportFound',getReportFound);
+  //set message
+
+  //lost route
+  setRedirectWithFunction('#button-sumbitNewReportLost','#newReportLost','#previewReportLost',renderPreviewLost);
+  setRedirect('#button-sumbitPreviewReportLost','#previewReportLost','#completeReportLost');
+  setRedirect('#button-sumbitCompleteReportLost','#completeReportLost','#showReportLost',getReportLost);
+  //set message
+
+
+  //set delifate
+  setDeligate('#list-lost','li',showLostReport,'#listReport','#showReportLost');
+  setDeligate('#list-found','li',showFoundReport,'#listReport','#showReportFound');
+  setDeligate('#list-message','li',showMessage,'#listMessage','#showMessage');
 }
+
+var renderPreviewLost = function(){
+  report = report1;
+  tmp = "#reportShow";
+  target = '#previewReportLostData';
+  var reportDetailsTmpl = $(tmp).html();
+  var reportDetails = $(target);
+  reportDetails.html(Mustache.render(reportDetailsTmpl,report))
+}
+
+var renderPreviewFound = function(){
+  report = report1;
+  tmp = "#reportShow";
+  target = '#previewReportFoundData';
+  var reportDetailsTmpl = $(tmp).html();
+  var reportDetails = $(target);
+  reportDetails.html(Mustache.render(reportDetailsTmpl,report))
+}
+var showLostReport = function(id){
+  console.log('get:'+id);
+  console.log('show lost report');
+  renderReport(report1,"#reportShow",'#showReportLostData');
+}
+var showFoundReport = function(id){
+  console.log('get:'+id);
+  console.log('show found report');
+  renderReport(report1,"#reportShow",'#showReportFoundData');
+}
+
+var showMessage = function(id){
+  console.log('get:'+id);
+  console.log('show message');
+  renderMessage(message1);
+  // renderReport(report1,"#reportShow",'#showReportFoundData');
+}
+
 var setBack = function(){
   $('.button-back').click(function(){
     $(this).parent().parent().hide();
     $('#menu-main').show();
+  })
+  $('#button-MessageFound').click(function(){
+    console.log('redirect to message')
+  })
+  $('#button-MessageLost').click(function(){
+    console.log('redirect to message')
   })
 }
 
@@ -47,8 +105,12 @@ var setRedirect = function(target,fro,to){
     showObject(to);
   });
 }
-var setDeligate = function(){
-
+var setDeligate = function(deligateTar,target,func,fro,to){
+  $(deligateTar).on('click',target,function(){
+    func($(this).data('id'));
+    hideObject(fro);
+    showObject(to);
+  });
 }
 var setRedirectWithFunction = function(target,fro,to,func){
   //set redirect function for a button
@@ -126,17 +188,28 @@ var renderLists = function(reports,template,list){
   reportList.html(reportHTML);
 }
 
+var renderMessage = function(report){
+  report = message1;
+  tmp = "#showMessage";
+  target = '#messageData';
+  var reportDetailsTmpl = $(tmp).html();
+  var reportDetails = $(target);
+  reportDetails.html(Mustache.render(reportDetailsTmpl,report));
+}
 var renderReport = function(report,tmp,target){
   report = report1;
-  tmp = "#report-show";
+  tmp = "#reportShow";
   target = '#showReportLostData';
   var reportDetailsTmpl = $(tmp).html();
   var reportDetails = $(target);
   reportDetails.html(Mustache.render(reportDetailsTmpl,report));
 }
 
-var getLostReport = function(){
-  renderReport(report1,"#report-show",'#showReportLostData');
+var getReportLost = function(){
+  renderReport(report1,"#reportShow",'#showReportLostData');
+}
+var getReportFound = function(){
+  renderReport(report1,"#reportShow",'#showReportFoundData');
 }
 var addReport = function(){
  renderLists([report1,report2],'#report-summary','#list-lost');
