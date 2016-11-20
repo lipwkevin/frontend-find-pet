@@ -18,7 +18,7 @@
     - settingMenu
     - listReport
     - listMessage
-    ? showMessage
+    - showMessage
     new Message
 
     newReportFound
@@ -36,8 +36,7 @@
 
 
     <section id="menu-main">
-      <div>
-        user info
+      <div id='userInfoData'>
       </div>
 
       <div>
@@ -63,11 +62,9 @@
       </div>
       <label class='seperate'>MAKE A REPORT</label>
       <ul id='list-lost'>
-        <li>lost report 1</li>
       </ul>
       <label class='seperate'>MAKE A REPORT</label>
       <ul id='list-found'>
-        <li>found report 1</li>
       </ul>
     </section>
     <section id='listMessage'>
@@ -174,15 +171,8 @@
       <p>FindMyPet V1.0</p>
     </section>
     <!-- template list:
-      user info
       newmessage
-
       editReportFound
-
-      indexReportLost
-      previewReportLost
-      showReportLost
-      editReportLost
     -->
 
     <script id="showMessage" type="x-tmpl-mustache">

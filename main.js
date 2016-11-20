@@ -18,8 +18,12 @@ $(function(){
   //set all deligate function for reports
 
 });
+
+var singOut = function(){
+  console.log('signout');
+}
 var renderUserInfo = function(){
-  
+
 }
 var setAction = function(){
   //found route
@@ -98,6 +102,17 @@ var setMenu = function(){
   setRedirectWithFunction('#button-listMessage','#menu-main','#listMessage',addMessage);
   setRedirect('#button-setting','#menu-main','#setting');
   setRedirect('#button-about','#menu-main','#about');
+  setRedirectWithFunction('#button-signout','#setting',,'#setting',signout);
+  setRedirectWithFunction('#button-notification','#setting',,'#setting',notification);
+  setRedirectWithFunction('#button-location','#setting',,'#setting',location);
+}
+
+var notification = function(){
+  console.log('notify');
+}
+
+var location = function(){
+  console.log('location');
 }
 
 var setRedirect = function(target,fro,to){
