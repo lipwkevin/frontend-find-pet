@@ -1,16 +1,16 @@
 .seperate {
   display: block;
   text-align: center;
-  background-color: lightgrey
+  background-color: #A0C7E1
 }
 
 .menu-control{
-  background-color: lightblue
+  background-color: #00AEFC
   /*need hex for color blue*/
 }
 
 .report-control{
-  background-color: lightgrey
+  background-color: #EFEFEF
 }
 #menu-main a {
   display: block;

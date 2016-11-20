@@ -7,7 +7,7 @@ $(function(){
    allView.forEach(function(view){
      hideObject(view);
    })
-
+   renderUserInfo();
    //list all views need to be visiable at begining
    showObject('#menu-main')
 
@@ -18,7 +18,9 @@ $(function(){
   //set all deligate function for reports
 
 });
-
+var renderUserInfo = function(){
+  
+}
 var setAction = function(){
   //found route
   setRedirectWithFunction('#button-sumbitNewReportFound','#newReportFound','#previewReportFound',renderPreviewFound);
