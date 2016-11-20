@@ -19,7 +19,7 @@ $(function(){
 
 });
 
-var singOut = function(){
+var signoutFunc = function(){
   console.log('signout');
 }
 var renderUserInfo = function(){
@@ -102,16 +102,16 @@ var setMenu = function(){
   setRedirectWithFunction('#button-listMessage','#menu-main','#listMessage',addMessage);
   setRedirect('#button-setting','#menu-main','#setting');
   setRedirect('#button-about','#menu-main','#about');
-  setRedirectWithFunction('#button-signout','#setting',,'#setting',signout);
-  setRedirectWithFunction('#button-notification','#setting',,'#setting',notification);
-  setRedirectWithFunction('#button-location','#setting',,'#setting',location);
+  setRedirectWithFunction('#button-signout','#setting','#setting',signoutFunc);
+  setRedirectWithFunction('#button-notification','#setting','#setting',notificationFunc);
+  setRedirectWithFunction('#button-location','#setting','#setting',locationFunc);
 }
 
-var notification = function(){
+var notificationFunc = function(){
   console.log('notify');
 }
 
-var location = function(){
+var locationFunc = function(){
   console.log('location');
 }
 
