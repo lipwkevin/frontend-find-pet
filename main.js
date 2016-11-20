@@ -28,7 +28,8 @@ var initialize = function(){
 
 var renderUserInfo = function(){
   //initialize user info from ajax
-  //also render userinfo Mustache?
+  bufferedData = user;
+  renderMustache('#user-info','#userInfoData');
   userID = 1;
 }
 var setAction = function(){
@@ -45,7 +46,7 @@ var setAction = function(){
   //set message
 
 
-  //set delifate
+  //set deligate
   setDeligate('#list-lost','li',getReportLost,'#listReport','#showReportLost');
   setDeligate('#list-found','li',getReportFound,'#listReport','#showReportFound');
   setDeligate('#list-message','li',getMessage,'#listMessage','#showMessage');
@@ -53,14 +54,16 @@ var setAction = function(){
 
 var signoutFunc = function(){
   console.log('signout');
-  //ajax to controler for redirect?
+  //ajax to controler and redirect?
 }
 
 var notificationFunc = function(){
+  //what to do in notification?
   console.log('notify');
 }
 
 var locationFunc = function(){
+  //what to do with location?
   console.log('location');
 }
 
@@ -69,16 +72,20 @@ var getReportLost = function(){
   console.log('lost:'+bufferedData);
   console.log('get lost report');
   //before running ajax, bufferedData stored the report id
-  //use ajax to update bufferedData
+  //use ajax to update bufferedData, report.find(bufferedData)
   bufferedData = report1;
+
+  //javascript for putting a pin on map
   renderMustache("#reportShow",'#showReportLostData');
 }
 var getReportFound = function(){
   console.log('found:'+bufferedData);
   console.log('get found report');
   //before running ajax, bufferedData stored the report id
-  //use ajax to update bufferedData
+  //use ajax to update bufferedData, report.find(bufferedData)
   bufferedData = report1;
+
+  //javascript for putting a pin on map
   renderMustache("#reportShow",'#showReportFoundData');
 }
 
@@ -86,7 +93,7 @@ var getMessage = function(){
   console.log('get:'+bufferedData);
   console.log('show message');
   //before running ajax, bufferedData stored the message id
-  //use ajax to get message
+  //use ajax to get message, message.find(bufferedData)
   bufferedData = message1
   renderMustache("#showMessage",'#messageData');
 }
@@ -146,6 +153,8 @@ var renderPreviewLost = function(){
 
   tmp = "#reportShow";
   target = '#previewReportLostData';
+
+  //javascript for putting a pin on map?
   renderMustache(tmp,target);
 }
 
@@ -155,14 +164,21 @@ var renderPreviewFound = function(){
 
   tmp = "#reportShow";
   target = '#previewReportFoundData';
+
+  //javascript for putting a pin on map?
   renderMustache(tmp,target);
 }
 
 var getReportId = function(){
+  //use ajax to pass report info to rails for save
   //use ajax to get report id from using report details
+  //or use ajax to get user.report.last?
+
   //before running ajax, bufferedData stored a report detail
   bufferedData = 1;
   //after running ajax, bufferedData will store a report id
+
+  //javascript for putting a pin on map
 }
 var addReport = function(){
   //use ajax to get alist of my lost report
@@ -261,4 +277,10 @@ var message1 = {
 var message2 = {
   'photo1' : '',
   'body' : 'body2'
+}
+
+var user = {
+  'avator' : '',
+  'first_name' :'first',
+  'last_name' : 'last'
 }
