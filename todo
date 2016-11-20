@@ -8,3 +8,63 @@ function for notication tab
 function for location tab
 
 read documentation, it should explain most of the dataflow and things left to impletment
+
+
+AJAX Links
+  - type:get
+  - controller? user
+  - purpose: get user info, at least need id,avator string and first_name
+  - params: nil
+
+  - type:get
+  - controller? report
+  - purpose: get a lost report using report id
+  - params: report.id
+
+
+  - type:get
+  - controller? report
+  - purpose: get a found report using report id
+  - params: report.id
+
+  - type: get
+  - controller? message
+  - purpose: get a message using message id
+  - params: message.id
+
+  - type: post
+  - controller? report
+  - purpose: pass information to rails server and save to database
+  - params: bufferedData (report information)
+
+  - type: get
+  - controller? report
+  - purpose: get the newly saved report from server
+  - params: bufferedData (report information) or user.report.last, pick one
+
+
+  - type: get
+  - controller? report
+  - purpose: get a list of lost report by a user
+  - params: userID
+
+
+  - type: get
+  - controller?  report
+  - purpose: get a list of found report by a user
+  - params: userID
+
+  - type: get
+  - controller? message
+  - purpose: get a list of recieved message of a user
+  - params: userID
+
+  - type: post
+  - controller? message
+  - purpose: pass message information to rails to save to DB
+  - params: bufferedData(message)
+
+  - type: get
+  - controller? report
+  - purpose: get a list of reports by filter
+  - params: filter fields (time and type?)

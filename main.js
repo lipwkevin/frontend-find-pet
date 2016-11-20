@@ -54,7 +54,7 @@ var setAction = function(){
 
 var signoutFunc = function(){
   console.log('signout');
-  //ajax to controler and redirect?
+  //connect to controler and redirect?
 }
 
 var notificationFunc = function(){
